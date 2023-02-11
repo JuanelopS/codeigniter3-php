@@ -1,26 +1,18 @@
 (function($){
-    $("#frm_login").submit(function(ev){
-
-        ev.preventDefault();
+    $("#loginForm").submit(function(e){
+        e.preventDefault();
         $.ajax({
-            url: 'validate',
+            url: 'login/validate',
             type: 'POST',
             data: $(this).serialize(), //serialize empaqueta todos los datos del formulario para su envío
-            sucess: function(data){
+            success: function(data){
                 var json = JSON.parse(data);
-                console.log(json);
+                console.log(json.email);
             },
-            error: function(xhr){
-                if(xhr.status == 400){
-                    var json = JSON.parse(xhr.responseText);
-                    if(json.email.length != 0){
-                        $("#email" > div).html(json.email);
-                        $("#email" > input).addClass('is-invalid');
-                    }
-                }
+            error: function(){
+                
             },
         });
-
     });
 
 })(jQuery)

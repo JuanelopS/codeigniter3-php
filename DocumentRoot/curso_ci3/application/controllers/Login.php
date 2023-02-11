@@ -21,10 +21,9 @@ class Login extends CI_Controller {
 		$this->form_validation->set_rules($rules);
 		if($this->form_validation->run() === FALSE) {
 			$errors = array(
-				'email' => form_error('email'),
+				'email' => form_error('email'), //errores específicos de cada input
 				'password' => form_error('password')
 			);
-			// $this->output->set_status_header(400);
 			echo json_encode($errors);
 		} else {
 			
