@@ -24,6 +24,7 @@
                     <div class="form-group" id="password">
                         <label for="loginPassword">Password</label>
                         <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Password">
+                        <div class="invalid-feedback"></div>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
