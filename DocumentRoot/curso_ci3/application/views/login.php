@@ -26,7 +26,10 @@
                         <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Password">
                         <div class="invalid-feedback"></div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="form-group" id="alert"></div>
                 </form>
             </div>
         </div>
