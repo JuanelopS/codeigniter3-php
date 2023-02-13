@@ -4,10 +4,16 @@
 		$.ajax({
 			url: "login/validate",
 			type: "POST",
-			data: $(this).serialize(), //serialize empaqueta todos los datos del formulario para su envío
+			data: $(this).serialize(), //serialize(): all data form for submit
 			success: function (err) {
-				// console.log(err);
+				var json = JSON.parse(err);
+				// console.log(json);
+				window.location.replace(json.url);
+
 			},
+            /* 
+                FIXME: message for blank password not hidden if you introduce it later
+            */
 			statusCode: {
 				400: function (xhr) {
 					$("#email > input").removeClass("is-invalid");
