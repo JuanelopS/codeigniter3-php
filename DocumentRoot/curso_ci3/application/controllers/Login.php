@@ -8,7 +8,7 @@ class Login extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper(array('getmenu', 'url'));
-		$this->load->library(array('form_validation', 'session'));
+		$this->load->library(array('form_validation'));
 		$this->load->helper(array('auth/login_rules'));
 		$this->load->model('Auth');
 	}
@@ -47,6 +47,8 @@ class Login extends CI_Controller
 				'is_logged' => TRUE
 			);
 			$this->session->set_userdata($data);
+			// flashdata: setear una variable temporal (se pierde incluso al refrescar la página)	
+			$this->session->set_flashdata('msg', 'Bienvenido ' . $data['username']);
 			// var_dump($res->username);
 			echo json_encode(array('url' => base_url('dashboard')));
 		}
@@ -57,5 +59,7 @@ class Login extends CI_Controller
 		$data = array('id', 'range', 'status', 'username', 'is_logged');
 		$this->session->unset_userdata($data);
 		$this->session->sess_destroy(); //same as php function session_destroy 
+
+		redirect('login');
 	}
 }

@@ -8,7 +8,7 @@
 			success: function (err) {
 				var json = JSON.parse(err);
 				// console.log(json);
-				window.location.replace(json.url);
+				window.location.replace(json.url); //json.url from Login/validate
 
 			},
             /* 
