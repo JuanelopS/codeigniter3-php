@@ -1,5 +1,5 @@
-<div class="d-flex flex-column p-3 bg-light col-2 justify-content-center">
-    <ul class="nav nav-pills flex-column mb-auto">
+<div class="d-flex flex-column p-3 bg-light col-2">
+    <ul class="nav nav-pills flex-column">
         <li class="nav-item">
             <a href="<?= base_url('dashboard') ?>" class="nav-link <?= $this->uri->segment('1') === 'dashboard' ? 'active' : '' ?>" aria-current="page">
                 Dashboard

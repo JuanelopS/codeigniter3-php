@@ -1,6 +1,6 @@
 <?php
 
-class Users extends CI_Model
+class Users_model extends CI_Model
 {
 
     public function create($data)
@@ -16,5 +16,11 @@ class Users extends CI_Model
             return false;
         }
         return true;
+    }
+
+    public function getUsers()
+    {
+        $query = "SELECT id, username, email, class, status FROM users";
+        return $this->db->query($query);
     }
 }

@@ -6,7 +6,6 @@ class Dashboard extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Users');
     }
 
     public function index()
@@ -22,10 +21,5 @@ class Dashboard extends CI_Controller
         } else {
             show_404();
         }
-    }
-
-    public function users()
-    {
-        return $this->db->get('users')->result();
     }
 }

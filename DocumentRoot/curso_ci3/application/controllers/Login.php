@@ -10,7 +10,7 @@ class Login extends CI_Controller
 		$this->load->helper(array('getmenu', 'url'));
 		$this->load->library(array('form_validation'));
 		$this->load->helper(array('auth/login_rules'));
-		$this->load->model('Auth');
+		$this->load->model('Auth_model');
 	}
 
 	public function index()
@@ -34,7 +34,7 @@ class Login extends CI_Controller
 		} else {
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
-			if (!$res = $this->Auth->login($email, $password)) {
+			if (!$res = $this->Auth_model->login($email, $password)) {
 				$this->output->set_status_header(401);
 				echo json_encode(array('msg' => 'Username and/or password incorrect.'));
 				exit;
