@@ -28,10 +28,16 @@ class Users extends CI_Controller
     public function display_users()
     {
         // table heading
-        $this->table->set_heading('id', 'Username', 'Email', 'Class', 'Status');
+        $this->table->set_heading('id', 'Username', 'Email', 'Department', 'Class', 'Status', '', '');
 
         // table template
-        $style = array('table_open' => '<table class="table text-center">');
+        $style = array(
+            'table_open' => '<table class="table text-center">',
+            'row_start'             => '<tr>',
+            'row_end'               => '<td><i class="fa-solid fa-file-pen"></i></td><td><i class="fa-solid fa-trash-can"></i></td></tr>',
+            'row_alt_start'         => '<tr>',
+            'row_alt_end'           => '<td><i class="fa-solid fa-file-pen"></i></td><td><i class="fa-solid fa-trash-can"></i></td></tr>',
+        );
         $this->table->set_template($style);
 
         // table model

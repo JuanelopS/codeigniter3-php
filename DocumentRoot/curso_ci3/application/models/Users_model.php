@@ -10,7 +10,7 @@ class Users_model extends CI_Model
             'email' => $data['email'],
             'password' => $data['password'],
             'status' => 1,
-            'range' => 1   // 1 normal, 2 admin
+            'class' => 1   // 1 normal, 2 admin
         );
         if (!$this->db->insert('users', $data)) { // INSERT INTO...
             return false;
@@ -20,7 +20,7 @@ class Users_model extends CI_Model
 
     public function getUsers()
     {
-        $query = "SELECT id, username, email, class, status FROM users";
+        $query = "SELECT id, username, email, department, class, status FROM users";
         return $this->db->query($query);
     }
 }
