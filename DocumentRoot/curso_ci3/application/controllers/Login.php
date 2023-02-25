@@ -41,7 +41,7 @@ class Login extends CI_Controller
 			}
 			$data = array(
 				'id' => $res->id,
-				'range' => $res->range,
+				'range' => $res->class,
 				'status' => $res->status,
 				'username' => $res->username,
 				'is_logged' => TRUE

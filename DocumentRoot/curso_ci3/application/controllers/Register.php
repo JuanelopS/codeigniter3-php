@@ -8,7 +8,7 @@ class Register extends CI_Controller
     {
         parent::__construct();
         $this->load->helper(array('getmenu'));
-        $this->load->model('Users');
+        $this->load->model('Users_model');
         $this->load->library(array('form_validation'));
     }
 
@@ -49,21 +49,22 @@ class Register extends CI_Controller
 
         $this->form_validation->set_rules($config);
 
-        if($this->form_validation->run() == FALSE){
+        if ($this->form_validation->run() == FALSE) {
             $this->load->view('register', $data);
         } else {
-            
+
             $insert = array(
                 'username' => $username,
                 'email' => $email,
                 'password' => $password,
             );
-            if (!$this->Users->create($insert)) {
+            if (!$this->Users_model->create($insert)) {
                 $data['msg'] = 'An error occurred inserting the data!';
                 $this->load->view('register', $data);
             }
             $data['msg'] = 'Properly registered!';
             $this->load->view('register', $data);
+            /* TODO: ADD REDIRECT TO LOGIN */
         }
     }
 }
