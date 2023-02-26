@@ -28,7 +28,7 @@ class Items extends CI_Controller
     public function display_items()
     {
         // table heading
-        $this->table->set_heading('Id', 'Code', 'Type', 'Brand', 'User', 'Location', '', '');
+        $this->table->set_heading('Id', 'Code', 'Type', 'Brand', 'Model', 's/n', 'User', 'Location', 'State', '', '');
 
         // table template
         $style = array(
@@ -45,5 +45,20 @@ class Items extends CI_Controller
         $data['itemtable'] = $this->table->generate($items);
 
         return $data;
+    }
+
+    public function create_items()
+    {
+        if ($this->session->userdata('is_logged')) {
+
+            /* Layout and Content */
+            $this->load->view('layout/header');
+            $this->load->view('layout/nav');
+            $this->load->view('layout/aside');
+            $this->load->view('admin/admin_items_create');
+            $this->load->view('layout/footer');
+        } else {
+            show_404();
+        }
     }
 }

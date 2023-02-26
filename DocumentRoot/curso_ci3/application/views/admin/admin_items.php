@@ -4,7 +4,7 @@
             <h2>Admin Dashboard - Items</h2>
         </div>
         <div class="col-2">
-            <button type="button" class="btn btn-primary">Add Item</button>
+            <a href="<?= base_url('items/create_items') ?>" class="btn btn-primary active" role="button" aria-pressed="true">Add item</a>
         </div>
     </div>
     <div class="row">

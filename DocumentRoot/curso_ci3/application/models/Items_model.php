@@ -9,8 +9,13 @@ class Items_model extends CI_Model
             'code' => $data['inventory_name'],
             'type' => $data['type'],
             'brand' => $data['brand'],
+            'model' => $data['model'],
+            'serial_number' => $data['serial_number'],
+            'state' => $data['state'],
             'user' => $data['username'],
-            'location' => $data['location']
+            'location' => $data['location'],
+            'invoice' => $data['invoice'],
+            'comments' => $data['comments']
 
             // ('Id', 'Code', 'Type', 'Brand', 'User', 'Location'
         );
