@@ -26,6 +26,8 @@ class Register extends CI_Controller
      */
     public function create()
     {
+
+        /* TODO: REGISTER/MENU LOGIN */
         $data['menu'] = main_menu();
 
         $username = $this->input->post('username');

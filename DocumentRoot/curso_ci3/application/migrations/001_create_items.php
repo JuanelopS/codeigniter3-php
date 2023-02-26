@@ -34,7 +34,7 @@ class Migration_create_item extends CI_Migration
                 'constraint' => '100',
                 'null' => TRUE,
             ),
-            'username' => array(
+            'id_user' => array(
                 'type' => 'INT',
                 'constraint' => '10',
                 'null' => TRUE,
