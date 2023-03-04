@@ -61,4 +61,39 @@ class Items extends CI_Controller
             show_404();
         }
     }
+
+    public function insert_items()
+    {
+        $name = $this->input->post('name');
+        $type = $this->input->post('type');
+        $brand = $this->input->post('brand');
+        $model = $this->input->post('model');
+        $serial_number = $this->input->post('serial_number');
+        $state = $this->input->post('state');
+        $invoice = $this->input->post('invoice');
+        $username = $this->input->post('username');
+        $location = $this->input->post('location');
+        $comments = $this->input->post('comments');
+
+
+        $insert = array(
+            'name' => $name,
+            'type' => $type,
+            'brand' => $brand,
+            'model' => $model,
+            'serial_number' => $serial_number,
+            'state' => $state,
+            'invoice' => $invoice,
+            'username' => $username,
+            'location' => $location,
+            'comments' => $comments
+        );
+
+        if (!$this->Items_model->create($insert)) {
+            $data['msg'] = 'An error occurred inserting new item!';
+            $this->load->view('admin/admin_items_create', $data);
+        }
+        $data['msg'] = 'Item properly added!';
+        $this->load->view('admin/admin_items_create', $data);
+    }
 }

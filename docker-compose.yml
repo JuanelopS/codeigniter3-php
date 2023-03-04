@@ -2,6 +2,7 @@ version: '3.7'
 
 services:
   php-httpd:
+    build: .
     image: php:7.3-apache
     ports:
       - 80:80
