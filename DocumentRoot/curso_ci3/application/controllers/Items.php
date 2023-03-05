@@ -47,7 +47,7 @@ class Items extends CI_Controller
         return $data;
     }
 
-    public function create_items()
+    public function create_items($data = NULL)
     {
         if ($this->session->userdata('is_logged')) {
 
@@ -55,7 +55,7 @@ class Items extends CI_Controller
             $this->load->view('layout/header');
             $this->load->view('layout/nav');
             $this->load->view('layout/aside');
-            $this->load->view('admin/admin_items_create');
+            $this->load->view('admin/admin_items_create', $data);
             $this->load->view('layout/footer');
         } else {
             show_404();
@@ -75,7 +75,6 @@ class Items extends CI_Controller
         $location = $this->input->post('location');
         $comments = $this->input->post('comments');
 
-
         $insert = array(
             'name' => $name,
             'type' => $type,
@@ -90,10 +89,10 @@ class Items extends CI_Controller
         );
 
         if (!$this->Items_model->create($insert)) {
-            $data['msg'] = 'An error occurred inserting new item!';
-            $this->load->view('admin/admin_items_create', $data);
+            $data['error'] = 'An error occurred inserting new item!';
+            $this->create_items($data);
         }
-        $data['msg'] = 'Item properly added!';
-        $this->load->view('admin/admin_items_create', $data);
+        $data['success'] = 'Item properly added!';
+        $this->create_items($data);
     }
 }
