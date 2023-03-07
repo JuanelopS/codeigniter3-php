@@ -33,8 +33,9 @@ class Users extends CI_Controller
         // table template
         $style = array(
             'table_open' => '<table class="table text-center">',
-            'row_end'               => '<td><i class="fa-solid fa-file-pen"></i></td><td><i class="fa-solid fa-trash-can"></i></td></tr>',
-            'row_alt_end'           => '<td><i class="fa-solid fa-file-pen"></i></td><td><i class="fa-solid fa-trash-can"></i></td></tr>',
+            'row_start' => '<tr style="background-color: aliceblue">',
+            'row_end' => '<td><i class="fa-solid fa-file-pen" style="color: #6495ED"></i></td><td><i class="fa-solid fa-trash-can" style="color: #DC143C"></i></td></tr>',
+            'row_alt_end' => '<td><i class="fa-solid fa-file-pen" style="color: #6495ED"></i></td><td><i class="fa-solid fa-trash-can" style="color: #DC143C"></i></td></tr>',
         );
         $this->table->set_template($style);
 

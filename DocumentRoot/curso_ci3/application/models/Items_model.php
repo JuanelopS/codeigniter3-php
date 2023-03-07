@@ -26,7 +26,7 @@ class Items_model extends CI_Model
 
     public function getItems()
     {
-        $query = "SELECT * FROM items";
+        $query = "SELECT id, name, type, brand, model, serial_number, state, username, location FROM items";
         return $this->db->query($query);
     }
 }
